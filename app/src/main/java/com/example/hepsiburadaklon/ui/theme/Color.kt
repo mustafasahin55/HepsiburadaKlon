@@ -25,3 +25,5 @@ val premium = Color(0xFFDF0886)
 val hepsipayBorder = Color(0xFFEFF1FE)
 val mor =Color(0xFF7825DB)
 val griYazi = Color(0xFF696969)
+val koyuGri = Color(0xFF4A4A4A)
+
