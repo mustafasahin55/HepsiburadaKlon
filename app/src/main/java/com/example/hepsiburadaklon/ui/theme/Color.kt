@@ -26,4 +26,7 @@ val hepsipayBorder = Color(0xFFEFF1FE)
 val mor =Color(0xFF7825DB)
 val griYazi = Color(0xFF696969)
 val koyuGri = Color(0xFF4A4A4A)
-
+val suYesili = Color(0xFFE5FFE6)
+val yesil = Color(0xFF32D499)
+val acikMavi = Color(0xFFF0F3FF)
+val mavi = Color(0xFF90A1F5)
