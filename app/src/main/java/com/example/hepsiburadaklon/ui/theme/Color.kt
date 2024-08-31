@@ -30,3 +30,8 @@ val suYesili = Color(0xFFE5FFE6)
 val yesil = Color(0xFF32D499)
 val acikMavi = Color(0xFFF0F3FF)
 val mavi = Color(0xFF90A1F5)
+
+val sb1 = Color(0xFF49C6EC)
+val sb2 = Color(0xFF7723DA)
+val sb3 = Color(0xFF57B800)
+val sb4 = Color(0xFF5D196A)

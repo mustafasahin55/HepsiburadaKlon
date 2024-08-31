@@ -48,6 +48,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -55,6 +56,7 @@ import com.example.hepsiburadaklon.R
 import com.example.hepsiburadaklon.data.entity.Gorseller
 import com.example.hepsiburadaklon.ui.theme.HepsiburadaKlonTheme
 import com.example.hepsiburadaklon.ui.theme.acikMavi
+import com.example.hepsiburadaklon.ui.theme.anton
 import com.example.hepsiburadaklon.ui.theme.aramaBg
 import com.example.hepsiburadaklon.ui.theme.aramaBorder
 import com.example.hepsiburadaklon.ui.theme.aramaicon
@@ -67,6 +69,10 @@ import com.example.hepsiburadaklon.ui.theme.koyuGri
 import com.example.hepsiburadaklon.ui.theme.mavi
 import com.example.hepsiburadaklon.ui.theme.mor
 import com.example.hepsiburadaklon.ui.theme.premium
+import com.example.hepsiburadaklon.ui.theme.sb1
+import com.example.hepsiburadaklon.ui.theme.sb2
+import com.example.hepsiburadaklon.ui.theme.sb3
+import com.example.hepsiburadaklon.ui.theme.sb4
 import com.example.hepsiburadaklon.ui.theme.suYesili
 import com.example.hepsiburadaklon.ui.theme.turuncu
 import com.example.hepsiburadaklon.ui.theme.yesil
@@ -102,6 +108,7 @@ fun Anasayfa() {
         val k1 = Gorseller(9, "Samsung Kampanya", "kaydirmali")
         val k2 = Gorseller(9, "oral", "oralb")
         val k2_1 = Gorseller(10, "kampanya", "k2")
+        val k2_2 = Gorseller(11, "oppo", "oppoo")
         gorseller.add(f1)
         gorseller.add(f2)
         gorseller.add(f3)
@@ -113,10 +120,11 @@ fun Anasayfa() {
         kaydirilabilir.add(k1)
         kaydirilabilir.add(k2)
         kaydirilabilir2.add(k2_1)
+        kaydirilabilir2.add(k2_2)
+
     }
 
 
-    Log.w("conff", "${configuration.screenHeightDp}-${configuration.screenWidthDp}")
     Scaffold(modifier = Modifier
         .fillMaxSize(),
         containerColor = bg,
@@ -128,14 +136,16 @@ fun Anasayfa() {
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(0.dp) // Reduced padding
+
                     ) {
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
-                                .padding(bottom = 4.dp), // Reduced padding
+                                .padding(bottom = 0.dp), // Reduced padding
                             verticalAlignment = Alignment.CenterVertically,
                             horizontalArrangement = Arrangement.SpaceBetween
                         ) {
+
                             // Search Bar
                             Box(
                                 modifier = Modifier
@@ -145,25 +155,25 @@ fun Anasayfa() {
                                     .width(310.dp)
                                     .background(aramaBg , shape = RoundedCornerShape(8.dp))
                                     .padding(horizontal = 8.dp), // Reduced padding
-                                contentAlignment = Alignment.CenterStart
-                            ) {
+                                contentAlignment = Alignment.BottomStart                            ) {
                                 Row(
                                     horizontalArrangement = Arrangement.Absolute.SpaceBetween,
                                     modifier = Modifier.fillMaxWidth(),
                                     verticalAlignment = Alignment.CenterVertically
                                 ) {
+
                                     Row(verticalAlignment = Alignment.CenterVertically) {
                                         Icon(
                                             painter = painterResource(id = R.drawable.arama), // Replace with your search icon resource
                                             contentDescription = "Search",
-                                            modifier = Modifier.size(16.dp), // Reduced size
+                                            modifier = Modifier.size(22.dp).padding(bottom = 6.dp), // Reduced size
                                             tint = koyuGri
                                         )
                                         Text(
                                             text = "Ürün, kategori veya marka ara",
                                             fontSize = 12.sp, // Reduced font size
                                             color = griYazi,
-                                            modifier = Modifier.padding(start = 4.dp) // Reduced padding
+                                            modifier = Modifier.padding(start = 4.dp,bottom = 6.dp) // Reduced padding
                                         )
                                     }
 
@@ -172,11 +182,57 @@ fun Anasayfa() {
                                         contentDescription = "Camera",
                                         modifier = Modifier
                                             .size(24.dp) // Reduced size
-                                            .padding(end = 2.dp), // Reduced padding
+                                            .padding(end = 2.dp,bottom = 8.dp), // Reduced padding
                                         tint = aramaicon
                                     )
+
                                 }
+                                Spacer(
+                                    modifier = Modifier
+                                        .height(3.dp)
+                                        .fillMaxWidth()
+                                        .background(Color.White) // Background color of the TextField
+                                )
+
+                                Row(
+                                    modifier = Modifier.fillMaxWidth()
+                                ) {
+                                    Spacer(
+                                        modifier = Modifier
+                                            .weight(1f)
+                                            .height(3.dp)
+                                            .background(turuncu) // Orange
+                                    )
+                                    Spacer(
+                                        modifier = Modifier
+                                            .weight(0.5f)
+                                            .height(3.dp)
+                                            .background(sb1) // Light Blue
+                                    )
+                                    Spacer(
+                                        modifier = Modifier
+                                            .weight(0.5f)
+                                            .height(3.dp)
+                                            .background(sb2) // Purple
+                                    )
+                                    Spacer(
+                                        modifier = Modifier
+                                            .weight(0.5f)
+                                            .height(3.dp)
+                                            .background(sb3) // Green
+                                    )
+                                    Spacer(
+                                        modifier = Modifier
+                                            .weight(0.5f)
+                                            .height(3.dp)
+                                            .background(sb4) // Green
+                                    )
+                                }
+
+
+
                             }
+
 
                             // Camera Icon
 
@@ -542,6 +598,24 @@ fun Anasayfa() {
                         modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp)
                     )
 
+                    // Overlaying the image with a box to show the current page index and total count
+                    Box(
+                        modifier = Modifier
+                            .padding(start = 23.dp, top = 100.dp).width(40.dp).height(18.dp)
+                            .background(Color.Black.copy(alpha = 0.45f), RoundedCornerShape(5.dp)) ,// Semi-transparent background with rounded corners
+
+                        contentAlignment = Alignment.Center
+
+
+                    ) {
+                        Text(
+                            text = "${it + 1} / ${kaydirilabilir.size}",
+                            color = Color.White,
+                            lineHeight = 9.sp,
+                            fontSize = 9.sp,
+                            textAlign = TextAlign.Center
+                        )
+                    }
                 }
             }
             item{
@@ -568,7 +642,8 @@ fun Anasayfa() {
                                 Text(
                                     text = g.aciklama,
                                     fontSize = 10.sp,
-                                    fontWeight = FontWeight.Bold,
+
+                                    fontFamily = anton,
                                     color = koyuGri,
                                     lineHeight = 10.sp
                                 )
@@ -596,6 +671,23 @@ fun Anasayfa() {
                             .height(165.dp)
                     )
 
+                    Box(
+                        modifier = Modifier
+                            .padding(start = 23.dp, top = 140.dp).width(40.dp).height(18.dp)
+                            .background(Color.Black.copy(alpha = 0.45f), RoundedCornerShape(5.dp)) ,// Semi-transparent background with rounded corners
+
+                        contentAlignment = Alignment.Center
+
+
+                    ) {
+                        Text(
+                            text = "${it + 1} / ${kaydirilabilir2.size}",
+                            color = Color.White,
+                            lineHeight = 9.sp,
+                            fontSize = 9.sp,
+                            textAlign = TextAlign.Center
+                        )
+                    }
                 }
             }
             item{
@@ -628,7 +720,7 @@ fun Anasayfa() {
                         }
                         Column(verticalArrangement = Arrangement.spacedBy(0.dp),
                             horizontalAlignment = Alignment.Start, modifier = Modifier.padding(start = 7.dp, top = 4.dp)) {
-                            Text(text = "Sana Özel Fırsatlar", color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 12.sp,  lineHeight = 8.sp,modifier = Modifier.padding(bottom = 0.dp))
+                            Text(text = "Sana Özel Fırsatlar", color = Color(0xFF050505), fontWeight = FontWeight.Bold, fontSize = 12.sp,  lineHeight = 8.sp,modifier = Modifier.padding(bottom = 0.dp))
                             Text(text = "20+ kupon fırsatı var", color = Color.Gray, fontSize = 8.sp, modifier = Modifier
                                 .padding(bottom = 0.dp)
                                 .height(15.dp), lineHeight = 8.sp)
@@ -667,7 +759,7 @@ fun Anasayfa() {
                         }
                         Column(verticalArrangement = Arrangement.spacedBy(0.dp),
                             horizontalAlignment = Alignment.Start, modifier = Modifier.padding(start = 7.dp, top = 0.dp)) {
-                            Text(text = "Tüm Kategoriler", color = Color.Black, fontWeight = FontWeight.Bold, fontSize = 12.sp,  lineHeight = 8.sp,modifier = Modifier.padding(bottom = 0.dp))
+                            Text(text = "Tüm Kategoriler", color = Color(0xFF050505), fontWeight = FontWeight.Bold, fontSize = 12.sp,  lineHeight = 8.sp,modifier = Modifier.padding(bottom = 0.dp))
                             Text(text = "Keşfetmeye Başla", color = Color.Gray, fontSize = 8.sp, modifier = Modifier.padding(bottom = 0.dp), lineHeight = 8.sp)
                         }
                     }
