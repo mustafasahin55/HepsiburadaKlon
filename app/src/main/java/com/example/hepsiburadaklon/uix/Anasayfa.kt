@@ -62,6 +62,7 @@ import com.example.hepsiburadaklon.ui.theme.aramaBorder
 import com.example.hepsiburadaklon.ui.theme.aramaicon
 import com.example.hepsiburadaklon.ui.theme.bg
 import com.example.hepsiburadaklon.ui.theme.butonBg
+import com.example.hepsiburadaklon.ui.theme.gilroy
 import com.example.hepsiburadaklon.ui.theme.gri
 import com.example.hepsiburadaklon.ui.theme.griYazi
 import com.example.hepsiburadaklon.ui.theme.hepsipayBorder
@@ -643,7 +644,7 @@ fun Anasayfa() {
                                     text = g.aciklama,
                                     fontSize = 10.sp,
 
-                                    fontFamily = anton,
+                                    fontFamily = gilroy,
                                     color = koyuGri,
                                     lineHeight = 10.sp
                                 )

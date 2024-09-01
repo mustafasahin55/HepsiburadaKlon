@@ -36,3 +36,4 @@ val Typography = Typography(
 )
 
 val anton = FontFamily(Font(R.font.anton))
+val gilroy = FontFamily(Font(R.font.gilroy))
